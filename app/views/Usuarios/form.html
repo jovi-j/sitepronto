@@ -1,22 +1,62 @@
- #{extends 'main.html' /}
+#{extends 'main.html' /}
 #{set title:'Formulario' /}
 
+
+#{ifErrors} <div class="alert alert-danger">Erros no preenchimento do formulário, por favor, verifique todos os dados.</div> #{/ifErrors}
+<div class="card card-chart">
+<div class="card-header card-header-primary">
 <h1>Cadastramento</h1>
+</div>
+<div class="card-body">
+	<form action="@{Usuarios.salvar}">
+	
+	<input class="input py-5" type="hidden" name="usu.id" value="${usu?.id}"> <br/> 
+	<div class="form-group">
+		<label for="">Nome</label>
+		<input class="form-control" name="usu.nome" value ="${flash['usu.nome'] != null ? flash['usu.nome'] : usu?.nome }"/>
+		#{ifError 'usu.nome'}
+			<p class="text-danger">
+				#{error 'usu.nome'/}
+			</p>
+		#{/ifError}
+	
+	</div>
+	<div class="form-group">
+		<label for="">Email</label>
+		<input class="form-control" name="usu.email"  value ="${flash['usu.email'] != null ? flash['usu.email'] : usu?.email }"/>
+		#{ifError 'usu.email'}
+			<p class="text-danger">
+				#{error 'usu.email'/}
+			</p>
+		#{/ifError}
+	
+	</div>
+	
+	<div class="form-group">
+		<label for="">Senha</label>
+		<input class="form-control" name="usu.senha" value ="${flash['usu.senha'] != null ? flash['usu.senha'] : usu?.senha }">
+		#{ifError 'usu.senha'}
+			<p class="text-danger">
+				#{error 'usu.senha'/}
+			</p>
+		#{/ifError}
+	
+	</div>
+	<div class="form-group">
+		<label for="">Ano de Nascimento</label>
+		<input class="form-control" name="usu.Nascimento" value ="${flash['usu.Nascimento'] != null ? flash['usu.Nascimento'] : usu?.Nascimento }">
+		#{ifError 'usu.Nascimento'}
+		<p class="text-danger">
+			#{error 'usu.Nascimento'/}
+		</p>
+		#{/ifError}
+	</div>
+	
+	<button type="submit" class="btn btn-primary">Enviar</button>
+	
+	
+	</form>
+</div>
+</div>
 
-
-<form action= "@{Usuarios.salvar}">
-<inputj class="input py-5" type="hidden" name="usu.id" value="${usu?.id}"> <br/> 
-Nome: <input type="text" name="usu.nome" value ="${usu?.nome}"> <br/> 
-Email: <input type="text" name="usu.email" value = "${usu?.email}"> <br/> 
-
-senha: <input type="password" name="usu.senha"> <br/> 
-
-Ano Nascimento: <input type="text" name="usu.anoNascimento" value-"$(usu?.anoNascimento)"> <br/> 
-
-<button>Enviar</button>
-
-
-</form>
-
-<ul></ul>
- <a href="@{Application.index}">Sair</a>
+ <a class="btn btn-info" href="@{Application.index}">Sair</a>

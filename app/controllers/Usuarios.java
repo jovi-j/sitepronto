@@ -2,7 +2,7 @@ package controllers;
 
 import java.util.List;
 
-import javax.validation.Valid;
+import play.data.validation.Valid;
 
 import models.Usuario;
 import play.mvc.Controller;
@@ -13,10 +13,11 @@ public class Usuarios extends Controller {
 	public static void form() {
 		render();
 	}
-	public static void salvar(@Valid  Usuario usu) {
+	public static void salvar(@Valid Usuario usu) {
 
 		if (validation.hasErrors()){
-			System.out.println("Há campos incorretos no formulario");
+			validation.keep();
+			params.flash();
 			form();
 		}
 		

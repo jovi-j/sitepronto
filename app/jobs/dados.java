@@ -19,7 +19,7 @@ public class dados extends Job{
 		juvenal.Nascimento = 2020;	
 
 		Usuario juba = new Usuario();
-		juba.nome = "Juba";
+		juba.nome = "Jujuba";
 		juba.email = "anejoestar@localnet.br";
 		juba.senha = "speedwagongostosa01";
 		juba.Nascimento = 2020;

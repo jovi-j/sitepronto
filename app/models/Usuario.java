@@ -9,6 +9,7 @@ import play.data.validation.Required;
 import play.data.validation.Unique;
 import play.data.validation.Email;
 import play.data.validation.MinSize;
+import play.data.validation.MaxSize;
 import play.data.validation.Min;
 import play.data.validation.Max;
 import play.db.jpa.Model;
@@ -22,17 +23,17 @@ public class Usuario extends Model {
 	@MinSize(5)
 	public String nome;
 
-	@Email
 	@Required
+	@Email
 	@Unique
 	public String email;
 
 	@Required
-	@Min(8)
+	@MinSize(8)
 	public String senha;
 
 	@Required
-	@Min(4)
-	@Max(4)
+	@MaxSize(4)
+	@MinSize(4)
 	public int Nascimento;
 }
