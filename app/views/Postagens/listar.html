@@ -1,28 +1,43 @@
 #{extends 'main.html' /}
 #{set title:'Lista' /}
 
-<h1>Lista de posts</h1>
-
-#{list items:lista,as:'post'}
+		<div class="card">
+		<div class="card-header card-header-warning"><h2 class="card-title">Lista de Posts</h2></div>
+		<div class="card-body">
+			<div class="table-responsive">
+			<table class="table">
+			<thead class="text-primary">
+				<tr>
+					<th>Autor do Post</th>
+					<th>Texto</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+				<tbody>
+					#{list items:lista,as:'post'}
+					 	<tr>
+					 		<td>
+					 			${post.donoDaPostagem.nome}
+					 		</td>
+					 		<td>
+					 			${post.texto}		 	
+					 		</td>
+					 		
+					 		<td>
+					 			<a class="btn btn-info" href='@{Postagens.editar(post.id)}'>Editar</a>
+					 			<a class="btn btn-danger" href='@{Postagens.deletar(post.id)}'>Deletar</a>
+					 		</td>
+					 	</tr>
+					
+					#{/list}
+				</tbody>
+			</table>
+			</div>
+			
+		</div>
+		</div>
+	#{else}
+	<h3>Nenhuma postagem feita!!</h3>
+	#{/else}
  
-<h3>${post.donoDaPostagem.nome}</h3>
-<li>${post.texto}</li>
-<div>
-
-<a href='@{Postagens.editar(post.id)}'>Editar ${post.donoDaPostagem.id}</a>
-<a href='@{Postagens.deletar(post.id)}'>Deletar</a><ul></ul>
-
-</div>
-
-<hr>
-
-#{/list}
-#{else}
-<li>Nenhuma postagem feita!!</li>
-#{/else}
-<ul></ul>
- </br>
- 
-
- 
- <a href="@{Application.index}">Sair</a>
+<a class="btn btn-info"href="@{Application.index}">Sair</a>
