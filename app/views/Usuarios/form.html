@@ -3,6 +3,7 @@
 
 
 #{ifErrors} <div class="alert alert-danger">Erros no preenchimento do formulário, por favor, verifique todos os dados.</div> #{/ifErrors}
+#{if session.get("usuario.email") == "admin@admin" }
 <div class="card card-chart">
 <div class="card-header card-header-primary">
 <h1>Cadastramento</h1>
@@ -58,5 +59,8 @@
 	</form>
 </div>
 </div>
-
- <a class="btn btn-info" href="@{Application.index}">Sair</a>
+#{/if}
+#{else}
+<p class="alert alert-danger">Você não tem permissão para ver esta página</p>
+#{/else}
+ <a class="btn btn-info" href="@{Application.index}">Início</a>

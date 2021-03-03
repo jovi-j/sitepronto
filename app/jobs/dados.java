@@ -23,6 +23,14 @@ public class dados extends Job{
 		juba.email = "anejoestar@localnet.br";
 		juba.senha = "speedwagongostosa01";
 		juba.Nascimento = 2020;
+
+		Usuario ademir = new Usuario();
+		ademir.nome = "Ademir";
+		ademir.email = "admin@admin";
+		ademir.senha = "admin";
+		ademir.Nascimento = 2020;
+
+		ademir.save();
 		juba.save();
 		juvenal.save();
 
@@ -32,7 +40,7 @@ public class dados extends Job{
 		p.save();
 
 		Postagem q = new Postagem();
-		q.texto = "Flamengo porraaaaaaa";
+		q.texto = "Flamengo ieeeeeew";
 		q.donoDaPostagem = juvenal;
 		q.save();
 	}

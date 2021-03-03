@@ -11,19 +11,19 @@ public class Login extends Controller{
 	}
 	
 	public static void autenticar(String email, String senha) {
-		
 		Usuario usuario = Usuario.find("email = ? and senha = ?", email, senha).first();
-		
-		if(usuario != null||(email.equals("admin") && senha.contentEquals("admin"))) {
-			Application.index ();
-		} 
-		else {
-			flash.error("Usuário ou senha incorretos.");
+		if(usuario == null) {
+			flash.error("Usuário ou senha inválidos.");
+			params.flash();
 			login();
+		}else {
+			session.put("usuario.id", usuario.id);
+			session.put("usuario.email", usuario.email);
+			Application.index();
 		}
-	}
-	
+	}	
 	public static void logout() {
+		session.clear();
 		login();
 	}
 

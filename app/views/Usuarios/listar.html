@@ -1,7 +1,7 @@
 #{extends 'main.html' /}
 #{set title:'Lista' /}
 
-		
+#{if session.get("usuario.email") == "admin@admin"}
 <div class="card card-chart">
 <div class="card-header card-chart card-header-primary">
 	<h3 class="card-title">Lista de cadastrados</h1>
@@ -50,4 +50,8 @@
 	 </br>
 	 
 </div>
-	 <a class="btn btn-info" href="@{Application.index}">Sair</a>
+#{/if}
+#{else}
+<p class="alert alert-danger">Você não tem permissão para ver esta página</p>
+#{/else}
+	 <a class="btn btn-info" href="@{Application.index}">Início</a>

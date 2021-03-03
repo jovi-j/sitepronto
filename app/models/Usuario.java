@@ -15,7 +15,6 @@ import play.data.validation.Max;
 import play.db.jpa.Model;
 
 
-
 @Entity
 public class Usuario extends Model {
 

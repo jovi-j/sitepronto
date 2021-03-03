@@ -25,6 +25,18 @@
   -->
         <div class="sidebar-wrapper">
         <ul class="nav">
+		#{if session.get('usuario.email') != null}
+			<li class="nav-item">
+				<a href="@{Login.logout}">
+					${session.get('usuario.email')} - Sair
+				</a>
+			</li>
+		#{/if}
+		#{else}
+			<li class="nav-item">
+				<a href="@{Login.login}">Fazer Login</a>
+			</li>
+		#{/else}
           <li class="nav-item active  ">
             <a class="nav-link" href="@{Usuarios.form}">
               <i class="material-icons">dashboard</i>
@@ -38,9 +50,9 @@
             </a>
           </li>
           <li class="nav-item active  ">
-            <a class="nav-link" href="@{Login.login}">
+            <a class="nav-link" href="@{Postagens.listar}">
               <i class="material-icons">dashboard</i>
-              <p>Login</p>
+              <p>Posts</p>
             </a>
           </li>
           
