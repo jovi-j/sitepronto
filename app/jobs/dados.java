@@ -35,12 +35,14 @@ public class dados extends Job{
 		juvenal.save();
 
 		Postagem p = new Postagem();
-		p.texto = "Undertale é massa";
+		p.empresa = "Posto Ipiranga - MACAU";
+		p.texto = "O atendimento é massa";
 		p.donoDaPostagem = juba;
 		p.save();
 
 		Postagem q = new Postagem();
-		q.texto = "Flamengo ieeeeeew";
+		q.empresa = "Posto Ipiranga - MACAU";
+		q.texto = "Atendimento rápido";
 		q.donoDaPostagem = juvenal;
 		q.save();
 	}

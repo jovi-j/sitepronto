@@ -2,7 +2,10 @@
 #{set title:'Formulario' /}
 
 
-#{ifErrors} <div class="alert alert-danger">Erros no preenchimento do formulário, por favor, verifique todos os dados.</div> #{/ifErrors}
+#{ifErrors}
+<div class="alert alert-danger">Erros no preenchimento do formulário, por favor, verifique todos os dados.</div>
+#{/ifErrors}
+
 #{if session.get("usuario.email") == "admin@admin" }
 <div class="card card-chart">
 <div class="card-header card-header-primary">
@@ -11,7 +14,7 @@
 <div class="card-body">
 	<form action="@{Usuarios.salvar}">
 	
-	<input class="input py-5" type="hidden" name="usu.id" value="${usu?.id}"> <br/> 
+	<input type="hidden" name="usu.id" value="${usu?.id}"> <br/> 
 	<div class="form-group">
 		<label for="">Nome</label>
 		<input class="form-control" name="usu.nome" value ="${flash['usu.nome'] != null ? flash['usu.nome'] : usu?.nome }"/>

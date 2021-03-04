@@ -12,8 +12,14 @@
 		<input type="hidden" name="uid" value="${post.donoDaPostagem.id}">
 		#{/ifnot}
 		<input type="hidden" name="uid" value="${id}">
-		<label for="">Texto</label>
-		<input type="text" class="form-control" name="post.texto" value = "${post?.texto}">
+		<div class="form-group">
+			<label for="">Empresa</label>
+			<input type="text" class="form-control" name="post.empresa" value = "${post?.empresa}">
+		</div>
+		<div class="form-group">
+			<label for="">Texto</label>
+			<input type="text" class="form-control" name="post.texto" value = "${post?.texto}">
+		</div>
 
 		<button type="submit" class="btn btn-info">Enviar</button>
 		</form>
